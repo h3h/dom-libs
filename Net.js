@@ -74,7 +74,10 @@ Net.post = function(oArgs)
       N.Request.open("POST", oArgs.url, true);
       N._setCallback(oArgs.onsuccess, oArgs.onerror);
       N.Request.setRequestHeader("Method", "POST "+oArgs.url+" HTTP/1.1");
-      N.Request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      N.Request.setRequestHeader("Content-Type",
+        "application/x-www-form-urlencoded");
+      N.Request.setRequestHeader("Content-length", oArgs.vars.length);
+      N.Request.setRequestHeader("Connection", "close");
       N.Request.send(oArgs.vars);
     }
     catch (e)

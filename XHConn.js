@@ -27,6 +27,8 @@ function XHConn()
         xmlhttp.setRequestHeader("Method", "POST "+sURL+" HTTP/1.1");
         xmlhttp.setRequestHeader("Content-Type",
           "application/x-www-form-urlencoded");
+        xmlhttp.setRequestHeader("Content-length", sVars.length);
+        xmlhttp.setRequestHeader("Connection", "close");
       }
       xmlhttp.onreadystatechange = function(){
         if (xmlhttp.readyState == 4 && !bComplete)
